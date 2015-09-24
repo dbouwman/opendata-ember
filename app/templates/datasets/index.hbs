@@ -1,10 +1,13 @@
 {{# each model as |dataset|}}
-  <tr {{action "gotoDataset" dataset}}>
-    <td>{{dataset.name}}</td>
+  <tr >
+    
+    <td >{{fav-dataset dataset=dataset favs=favs action="toggleDataset" }}</td>
+
+    <td><a {{action "gotoDataset" dataset}}> {{dataset.name}} </a></td>
     <td>{{dataset.owner}}</td>
     <td>{{format-number dataset.recordCount}}</td>
     <td>{{dataset.itemType}}</td>
-    <td>{{format-number dataset.views}}</td>
+    
     <td>{{moment-from-now dataset.createdAt}}</td>
     <td>{{moment-from-now dataset.updatedAt}}</td>
   </tr>

@@ -24,7 +24,7 @@ export default Ember.Component.extend({
     let mapViewOpts = {
       container: 'map-div',  //reference to the DOM node that will contain the view
       map: map,  //references the map object created in step 3
-      height: this.element.clientHeight,
+      height: 400,
       width: this.element.clientWidth
     };
 

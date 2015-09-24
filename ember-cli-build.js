@@ -3,12 +3,28 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+
+    storeConfigInMeta: false,
+
+    fingerprint: {
+      exclude: ['vendor', 'opendata-ember']
+    },
+
+    // ember-cli-sass
+    sassOptions: {
+      includePaths: [
+        'bower_components/bootstrap-sass-official/assets/stylesheets'
+      ]
+    },
+
+
     srcTag: 'https://js.arcgis.com/4.0beta1/', // only needed for CDN, will default to 'built.js' if useRequire = true
     amdPackages: [ // user defined AMD packages
       'esri'
     ]
   });
 
+  app.import('bower_components/ember/ember-template-compiler.js');
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
@@ -27,6 +43,7 @@ module.exports = function(defaults) {
   });
 
   app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
+
 
   return app.toTree();
 };

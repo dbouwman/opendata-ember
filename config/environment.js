@@ -28,7 +28,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      API: 'http://opendataqa.arcgis.com'
+      API: 'http://catalogue.hrm.opendata.arcgis.com'
     }
   };
 
@@ -52,9 +52,16 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  // if (environment === 'production' || environment === 'prod') {
+  //   ENV.baseUrl = '/opendata-ember';
+  //   ENV.rootUrl = '/opendata-ember';
+  //   ENV.APP.API = 'http://opendataqa.arcgis.com';
+  //   ENV.locationType = 'hash';
+  // }
+
   if (environment === 'production' || environment === 'prod') {
-    ENV.baseUrl = '/opendata-ember';
-    ENV.rootUrl = '/opendata-ember';
+    ENV.baseUrl = '/';
+    ENV.rootUrl = '/';
     ENV.APP.API = 'http://opendataqa.arcgis.com';
     ENV.locationType = 'hash';
   }

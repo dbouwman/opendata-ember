@@ -33,8 +33,27 @@ You will need the following things properly installed on your computer.
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
+### Deploying to gh-pages
 
 To deploy to the gh-pages branch of your origin:
 
 `./deploy.sh`
+
+### Deploy to S3
+
+Create a aws.json file in the root (this is .gitignor-ed), with this structure
+
+```
+{
+  "s3": {
+    "key": "YOUR_KEY",
+    "secret": "YOUR_SECRET",
+    "bucket": "YOUR_BUCKET_NAME"
+  }
+}
+
+```
+
+Then...
+
+`ember deploy:s3 `

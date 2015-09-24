@@ -10,6 +10,13 @@ export default Ember.Controller.extend({
     'q'
   ],
 
+  favs:[],
+
+  favsChanged: Ember.observer('favs', function(){
+    console.log('/controllers/datasets saw favs change...');
+  }),
+
+
   // defaults
   page: 1,
   q: null,
@@ -54,6 +61,24 @@ export default Ember.Controller.extend({
     }
 
     return result;
-  }.property('totalPages', 'page')
+  }.property('totalPages', 'page'),
+
+  hasFavs: Ember.computed('model', function(){
+    var ids = localStorage.getItem('favs');
+    if(ids){
+      var ds = JSON.parse(ids);
+      if(ds.length > 0 ){
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
+    }
+  }),
+
+
+
+
 
 });
