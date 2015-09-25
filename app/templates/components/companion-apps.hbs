@@ -1,6 +1,6 @@
 {{#if apps}}
   <span><strong>Open this dataset in:</strong></span> 
   {{#each apps as |app|}}
-  <a class="btn btn-link" href="{{app.url}}"> Crime Explorer <span class="glyphicon glyphicon-new-window"></span> </a>
+  <a class="btn btn-link" href="{{app.url}}" > {{app.name}} <span class="glyphicon glyphicon-new-window"></span> </a>
   {{/each}}
 {{/if}}

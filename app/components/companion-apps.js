@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Component.extend({
   dataset: {},
@@ -11,9 +12,20 @@ export default Ember.Component.extend({
       //add the crime viewer
       apps.push({
         name:'Crime Explorer',
-        url: 'http://localhost:9090/crime-viewer.html?orgId=LjjARY1mkhxulWPq&backUrl=' + window.location.href +'&datasetId=' + dataset.id
+        url: config.companionAppsBaseUrl + '/crime-viewer.html?orgId=LjjARY1mkhxulWPq&backUrl=' + window.encodeURIComponent(window.location.href) +'&datasetId=' + dataset.id
       });
     }
+
+    apps.push({
+      name:'Chart Builder',
+      url: 'http://esri.github.io/cedar/examples/scatter-def-url.html?datasetId=' + dataset.id
+    });
+
+    //always setup thematic mapper (aka mundi)
+    apps.push({
+      name:'Thematic Mapper',
+      url: config.favAppUrl + '?orgId=LjjARY1mkhxulWPq&backUrl=' + window.encodeURIComponent(window.location.href) +'&datasets=' + dataset.id
+    });
 
     return apps;
 

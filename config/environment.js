@@ -7,6 +7,8 @@ module.exports = function(environment) {
     rootUrl: '/', //assets
     baseURL: '/', //app
     locationType: 'auto',
+    companionAppsBaseUrl: 'http://localhost:9090',
+    favAppUrl:'http://localhost:9001',
 
     contentSecurityPolicy: {
       'default-src': "'none'",
@@ -62,8 +64,10 @@ module.exports = function(environment) {
   if (environment === 'production' || environment === 'prod') {
     ENV.baseUrl = '/';
     ENV.rootUrl = '/';
-    ENV.APP.API = 'http://opendataqa.arcgis.com';
+    ENV.APP.API = 'http://catalogue.hrm.opendata.arcgis.com';
     ENV.locationType = 'hash';
+    ENV.companionAppsBaseUrl= 'http://arcgis.github.io/composer-companion-apps';
+    ENV.favAppUrl='http://dbouwman.github.io/mundi';
   }
 
   if (environment === 'qaext') {

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Component.extend({
 
@@ -24,7 +25,7 @@ export default Ember.Component.extend({
     var ids = localStorage.getItem('favs');
     if(ids){
       var ds = JSON.parse(ids).join(',');
-      return 'http://localhost:9090/multimap.html?orgId=LjjARY1mkhxulWPq&backUrl=' + window.location.href + '&datasets=' +ds;
+      return config.favAppUrl + '?orgId=LjjARY1mkhxulWPq&datasets=' +ds;
     }else{
       return '';
     }
